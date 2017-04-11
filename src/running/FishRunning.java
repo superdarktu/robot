@@ -9,6 +9,7 @@
 package running;
 
 import java.awt.AWTException;
+import java.awt.Color;
 import java.awt.Robot;
 import java.awt.event.KeyEvent;
 
@@ -21,6 +22,9 @@ import util.RobotUtil;
 public class FishRunning extends Running{
 
 	private int waitTime;
+	
+	private int x = 573;
+	private int y = 415;
 	
 	public FishRunning(int waitTime){
 		
@@ -41,10 +45,21 @@ public class FishRunning extends Running{
 			
 			System.out.println("第"+i+"次抛竿");
 			robotUtil.pressKeyWithTime(KeyEvent.VK_F,500);
-			robot.delay(waitTime);
-			System.out.println("第"+i+"次拉竿");
-			robotUtil.pressKey(KeyEvent.VK_F);
-			robot.delay(10000);
+			int tempRGB = 1 ;
+			for(int u =0;;u++){
+				Color pixel = robot.getPixelColor(573,415);
+				System.out.println(pixel.getRGB());
+				if(u>30) break;
+				if(pixel.getRGB()>-10000 &&pixel.getRGB()<0){
+					System.out.println("第"+i+"次拉竿");
+					robotUtil.pressKey(KeyEvent.VK_F);
+					break;
+				}else{
+					tempRGB = pixel.getRGB();
+					robot.delay(500);
+				}
+			}
+			robot.delay(2000);
 		}
 	}
 }

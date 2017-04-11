@@ -8,8 +8,10 @@
 
 
 import java.awt.AWTException;
+import java.awt.Color;
+import java.awt.MouseInfo;
+import java.awt.Point;
 import java.awt.Robot;
-import java.awt.event.KeyEvent;
 
 import running.FishRunning;
 import running.Running;
@@ -31,6 +33,19 @@ public class Main {
 		robot.keyRelease(KeyEvent.VK_F);*/
 		Running running = new FishRunning(13000);
 		running.run();
+		/*robot.delay(5000);
+		for(int i=0;i<20;i++){
+			Point mousepoint = MouseInfo.getPointerInfo().getLocation();
+			Color pixel = robot.getPixelColofr(573,415);
+			System.out.print(mousepoint.x + "---");f
+			System.out.print(mousepoint.y + "---");
+			System.out.print(pixel.getRGB() + "---");
+			System.out.print(pixel.getRed() + "---");
+			System.out.print(pixel.getBlue() + "---");
+			System.out.println(pixel.getGreen());
+			System.out.println("------------------------------");
+			robot.delay(1000);
+		}*/
 	} 
 	
 
