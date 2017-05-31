@@ -2,7 +2,7 @@
  * Coryright 2015-2020 www.eyaomall.cn
  * All rights reserved.
  * @author tumingjun
- * @date 2017Äê4ÔÂ5ÈÕ
+ * @date 2017ï¿½ï¿½4ï¿½ï¿½5ï¿½ï¿½
  *
  */
 
@@ -11,6 +11,8 @@ import java.awt.AWTException;
 import java.awt.Robot;
 import java.awt.event.KeyEvent;
 
+import running.FishRunning;
+import running.Running;
 import util.RobotUtil;
 
 /**
@@ -24,14 +26,14 @@ public class Main {
 		Robot robot = new Robot();
 		RobotUtil ru = new RobotUtil(robot);
 	//	ru.pressKey(KeyEvent.VK_X);
-		for(int i=0;i<240;i++){
+		/*for(int i=0;i<240;i++){
 			robot.delay(60000);
 		}
-		ru.pressKey(KeyEvent.VK_ENTER);
+		ru.pressKey(KeyEvent.VK_ENTER);*/
 	/*	robot.delay(500);
 		robot.keyRelease(KeyEvent.VK_F);*/
-		/*Running running = new FishRunning(5000);
-		running.run();*/
+		Running running = new FishRunning(5000,573,415,1,2,3,4);
+		running.run();
 		/*robot.delay(5000);
 		for(int i=0;i<20;i++){
 			Point mousepoint = MouseInfo.getPointerInfo().getLocation();
