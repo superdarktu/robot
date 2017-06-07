@@ -2,7 +2,6 @@
  * Coryright 2015-2020 www.eyaomall.cn
  * All rights reserved.
  * @author tumingjun
- * @date 2017年4月10日
  *
  */
 
@@ -25,14 +24,14 @@ public class RobotUtil {
 		this.robot = robot;
 	}
 
-	//单击按键
+	// 鍗曟満
 	public void pressKey(int keyvalue){
 		
 		this.robot.keyPress(keyvalue);
 		this.robot.keyRelease(keyvalue);
 	}
 	
-	//shift+某键
+	//shift+鎸夐敭
 	public  void pressKeyWithShift(int keyvalue) {
 	   
 		this.robot.keyPress(KeyEvent.VK_SHIFT);
@@ -41,7 +40,7 @@ public class RobotUtil {
 	    this.robot.keyRelease(KeyEvent.VK_SHIFT);
 	}
 	
-	//alt+某键
+	//alt+鎸夐敭
 	public  void pressKeyWithAlt(int keyvalue) {
 	   
 		this.robot.keyPress(KeyEvent.VK_ALT);
@@ -50,7 +49,7 @@ public class RobotUtil {
 	    this.robot.keyRelease(KeyEvent.VK_ALT);
 	} 
 	
-	//ctrl+某键
+	//ctrl+鎸夐敭
 	public  void pressKeyWithCtrl(int keyvalue) {
 	   
 		this.robot.keyPress(KeyEvent.VK_CONTROL);
@@ -59,7 +58,7 @@ public class RobotUtil {
 	    this.robot.keyRelease(KeyEvent.VK_CONTROL);
 	}
 	
-	//长按
+	//闀挎寜
 	public void pressKeyWithTime(int keyvalue, int time){
 		this.robot.keyPress(keyvalue);
 		this.robot.delay(time);

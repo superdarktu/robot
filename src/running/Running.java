@@ -2,7 +2,7 @@
  * Coryright 2015-2020 www.eyaomall.cn
  * All rights reserved.
  * @author tumingjun
- * @date 2017Äê4ÔÂ10ÈÕ
+ * @date 2017??4??10??
  *
  */
 
@@ -18,4 +18,6 @@ import java.awt.Robot;
 public abstract class Running {
 
 	public void run(){}
+
+	public void stop(){}
 }
