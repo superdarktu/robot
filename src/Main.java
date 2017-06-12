@@ -23,7 +23,13 @@ public class Main {
 
 	public static void main(String[] args) throws AWTException {
 
-	    if(true) {
+	    int aaa[][] = {{1,2,3,4},{1,2,3,4},{1,2,3,4},{1,2,3,4}};
+	    for(int aa[] : aaa) {
+            for (int a : aa)
+                System.out.print(a+" ");
+            System.out.println();
+        }
+	    if(false) {
             MainLayout mainLayout = new MainLayout();
         }
 
