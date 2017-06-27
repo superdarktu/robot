@@ -23,29 +23,10 @@ public class Main {
 
 	public static void main(String[] args) throws AWTException {
 
-	    int aaa[][] = {{1,2,3,4},{1,2,3,4},{1,2,3,4},{1,2,3,4}};
-	    for(int aa[] : aaa) {
-            for (int a : aa)
-                System.out.print(a+" ");
-            System.out.println();
-        }
-	    if(false) {
+	    if(true) {
             MainLayout mainLayout = new MainLayout();
         }
 
-        if(false) {
-            Robot robot = new Robot();
-            robot.delay(5000);
-            for (int i = 0; i < 20; i++) {
-                Point mousepoint = MouseInfo.getPointerInfo().getLocation();
-                Color pixel = robot.getPixelColor(mousepoint.x, mousepoint.y);
-                System.out.print(mousepoint.x + "---");
-                System.out.print(mousepoint.y + "---");
-                System.out.print(pixel.getRGB() + "---");
-                System.out.println("------------------------------");
-                robot.delay(1000);
-            }
-        }
 	} 
 	
 

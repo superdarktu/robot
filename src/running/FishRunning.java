@@ -74,35 +74,54 @@ public class FishRunning extends Running{
 			for(int u =0;;u++){
 				Color pixel = robot.getPixelColor(x,y);
 				System.out.println(pixel.getRGB());
-				if(u>30) break;
+				if(u>50) break;
 				if(pixel.getRGB()> AWTColor.FISHING_COLOR_DOWN &&pixel.getRGB()<AWTColor.FISHING_COLOR_UP){
 					System.out.println("第"+lagan+"次拉竿");
 					robotUtil.pressKey(KeyEvent.VK_F);
 					lagan++;
-					robot.delay(500);
-					Color pixelLeft = robot.getPixelColor(this.leftX,this.leftY);
-					Color pixelRight = robot.getPixelColor(this.rightX,this.rigthY);
-					if(pixelLeft.getRGB()>AWTColor.FISHING_COLOR_DOWN &&pixelLeft.getRGB()<AWTColor.FISHING_COLOR_UP){
-						leftRight(this.leftX,this.leftY,this.rightX,this.rigthY);
-						System.out.println("第"+konggan+"次控杆");
-						konggan++;
-						break;
-					}else if(pixelRight.getRGB()>AWTColor.FISHING_COLOR_DOWN &&pixelRight.getRGB()<AWTColor.FISHING_COLOR_UP){
-						leftRight(this.leftX,this.leftY,this.rightX,this.rigthY);
-						System.out.println("第"+konggan+"次控杆");
-						konggan++;
-						break;
+					for(int p=0;p<3;p++){
+						robot.delay(400);
+						Color pixelLeft = robot.getPixelColor(this.leftX,this.leftY);
+						Color pixelRight = robot.getPixelColor(this.rightX,this.rigthY);
+						Color pixelLeft2 = robot.getPixelColor(this.leftX,this.leftY-10);
+						Color pixelRight2 = robot.getPixelColor(this.rightX,this.rigthY-10);
+						Color pixelLeft3 = robot.getPixelColor(this.leftX,this.leftY-20);
+						Color pixelRight3 = robot.getPixelColor(this.rightX,this.rigthY-20);
+						System.out.println(pixelLeft.getRGB());
+						System.out.println(pixelRight.getRGB());
+						System.out.println(pixelLeft2.getRGB());
+						System.out.println(pixelRight2.getRGB());
+						System.out.println(pixelLeft3.getRGB());
+						System.out.println(pixelRight3.getRGB());
+						System.out.println("-------------");
+						if((pixelLeft.getRGB()>-300000 &&pixelLeft.getRGB()<0) ||
+								(pixelLeft2.getRGB()>-300000 &&pixelLeft2.getRGB()<0) ||
+								(pixelLeft3.getRGB()>-300000 &&pixelLeft3.getRGB()<0) ){
+							leftRight(this.leftX,this.leftY,this.rightX,this.rigthY);
+							System.out.println("第"+konggan+"次控杆");
+							konggan++;
+							break;
+						}else if((pixelRight.getRGB()>-300000 &&pixelRight.getRGB()<0) ||
+								(pixelRight2.getRGB()>-300000 &&pixelRight2.getRGB()<0) ||
+								(pixelRight3.getRGB()>-300000 &&pixelRight3.getRGB()<0) ){
+							leftRight(this.leftX,this.leftY,this.rightX,this.rigthY);
+							System.out.println("第"+konggan+"次控杆");
+							konggan++;
+							break;
+						}
 					}
 					break;
 				}else{
 					tempRGB = pixel.getRGB();
-					robot.delay(500);
+					robot.delay(300);
 				}
 			}
 			robot.delay(2000);
 		}
 	}
 	void leftRight(Integer x1,Integer y1,Integer x2,Integer y2){
+		System.out.println(123123);
+		int aaa = 0;
 		Robot robot = null;
 		try {
 			robot = new Robot();
@@ -110,15 +129,30 @@ public class FishRunning extends Running{
 			e.printStackTrace();
 		}
 		RobotUtil robotUtil = new RobotUtil(robot);
-		Color pixelLeft = robot.getPixelColor(x1,y1);
-		Color pixelRight = robot.getPixelColor(x2,y2);
-		for(;;)
-		if(pixelLeft.getRGB()>AWTColor.FISHING_COLOR_DOWN &&pixelLeft.getRGB()<AWTColor.FISHING_COLOR_UP){
-			robotUtil.pressKey(KeyEvent.VK_A);
-		}else if(pixelRight.getRGB()>AWTColor.FISHING_COLOR_DOWN &&pixelRight.getRGB()<AWTColor.FISHING_COLOR_UP){
-			robotUtil.pressKey(KeyEvent.VK_D);
-		}else{
-			break;
+		for(;;){
+			Color pixelLeft = robot.getPixelColor(x1,y1);
+			Color pixelRight = robot.getPixelColor(x2,y2);
+			Color pixelLeft2 = robot.getPixelColor(x1,y1-10);
+			Color pixelRight2 = robot.getPixelColor(x2,y2-10);
+			Color pixelLeft3 = robot.getPixelColor(x1,y1-20);
+			Color pixelRight3 = robot.getPixelColor(x2,y2-20);
+			System.out.println(pixelLeft.getRGB());
+			System.out.println(pixelRight.getRGB());
+			if((pixelLeft.getRGB()>-300000 &&pixelLeft.getRGB()<0)||
+					(pixelLeft2.getRGB()>-300000 &&pixelLeft2.getRGB()<0)||
+					(pixelLeft3.getRGB()>-300000 &&pixelLeft3.getRGB()<0)){
+				robotUtil.pressKey(KeyEvent.VK_A);
+				aaa = 0;
+			}else if((pixelRight.getRGB()>-300000 &&pixelRight.getRGB()<0) ||
+					(pixelRight2.getRGB()>-300000 &&pixelRight2.getRGB()<0) ||
+					(pixelRight3.getRGB()>-300000 &&pixelRight3.getRGB()<0) ){
+				robotUtil.pressKey(KeyEvent.VK_D);
+				aaa = 0;
+			}else if(aaa > 10){
+				break;
+			}else{
+				aaa++;
+			}
 		}
 	}
 }

@@ -1,6 +1,5 @@
 package ui.jpanel;
 
-import com.sun.deploy.util.StringUtils;
 import model.Position1366;
 import running.FishRunning;
 import running.Running;

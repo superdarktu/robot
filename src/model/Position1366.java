@@ -2,19 +2,19 @@ package model;
 
 public class Position1366 {
 
-    // 钓鱼控杆时左边提示位置
-    public static int FISHING_LEFT_X = 1000;
-    public static int FISHING_LEFT_Y = 1000;
+    // 閽撻奔鎺ф潌鏃跺乏杈规彁绀轰綅缃�
+    public static int FISHING_LEFT_X = 585;
+    public static int FISHING_LEFT_Y = 335;
 
-    //钓鱼控杆时右边提示位置
-    public static int FISHING_RIGHT_X = 1000;
-    public static int FISHING_RIGHT_Y = 1000;
+    //閽撻奔鎺ф潌鏃跺彸杈规彁绀轰綅缃�
+    public static int FISHING_RIGHT_X = 775;
+    public static int FISHING_RIGHT_Y = 335;
 
-    //钓鱼咬钩时提示位置
+    //閽撻奔鍜挬鏃舵彁绀轰綅缃�
     public static int FISHING_X = 573;
     public static int FISHING_Y = 415;
 
-    //怪物目标血量位置 三重保险判断
+    //鎬墿鐩爣琛�閲忎綅缃� 涓夐噸淇濋櫓鍒ゆ柇
     public static int GUAI_FOCUS_X_1 = 1000;
     public static int GUAI_FOCUS_Y_1 = 1000;
     public static int GUAI_FOCUS_X_2 = 1000;
@@ -22,7 +22,7 @@ public class Position1366 {
     public static int GUAI_FOCUS_X_3 = 1000;
     public static int GUAI_FOCUS_Y_3 = 1000;
 
-    //拍卖行弹出确认位置  三重保险判断
+    //鎷嶅崠琛屽脊鍑虹‘璁や綅缃�  涓夐噸淇濋櫓鍒ゆ柇
     public static int BUY_X_1 = 1000;
     public static int BUY_Y_1 = 1000;
     public static int BUY_X_2 = 1000;
@@ -30,27 +30,27 @@ public class Position1366 {
     public static int BUY_X_3 = 1000;
     public static int BUY_Y_3 = 1000;
 
-    //拍卖行竞拍按钮位置
+    //鎷嶅崠琛岀珵鎷嶆寜閽綅缃�
     public static int BUY_BUTTON_X = 1000;
     public static int BUY_BUTTON_Y = 1000;
 
-    //拍卖行确认购买按钮位置
+    //鎷嶅崠琛岀‘璁よ喘涔版寜閽綅缃�
     public static int BUY_CONFIRM_X = 1000;
     public static int BUY_CONFIRM_Y = 1000;
 
-    //右边任务窗口标题位置
+    //鍙宠竟浠诲姟绐楀彛鏍囬浣嶇疆
     public static int TASK_TITLE_X = 1000;
     public static int TASK_TITLE_Y = 1000;
 
-    //任务栏中目标位置
+    //浠诲姟鏍忎腑鐩爣浣嶇疆
     public static int TASK_TARGET_X = 1000;
     public static int TASK_TARGET_Y = 1000;
 
-    //点击任务目标类型判断位置
+    //鐐瑰嚮浠诲姟鐩爣绫诲瀷鍒ゆ柇浣嶇疆
     public static int TASK_CHOOSE_X = 1000;
     public static int TASK_CHOOSE_Y = 1000;
 
-    //弹出对话判断位置 三重保险判断
+    //寮瑰嚭瀵硅瘽鍒ゆ柇浣嶇疆 涓夐噸淇濋櫓鍒ゆ柇
     public static int TASK_CHAT_X_1 = 1000;
     public static int TASK_CHAT_Y_1 = 1000;
     public static int TASK_CHAT_X_2 = 1000;
@@ -58,7 +58,7 @@ public class Position1366 {
     public static int TASK_CHAT_X_3 = 1000;
     public static int TASK_CHAT_Y_3 = 1000;
 
-    //唱歌答案位置
+    //鍞辨瓕绛旀浣嶇疆
     public static int SING_ANSWER_ONE_X = 1000;
     public static int SING_ANSWER_ONE_Y = 1000;
     public static int SING_ANSWER_TWO_X = 1000;
