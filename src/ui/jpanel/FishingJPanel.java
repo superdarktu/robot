@@ -1,13 +1,16 @@
 package ui.jpanel;
 
+import com.sun.scenario.effect.impl.sw.sse.SSEBlend_SRC_OUTPeer;
 import model.Position1366;
 import running.FishRunning;
 import running.Running;
+import util.RobotUtil;
 
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.KeyEvent;
 
 public class FishingJPanel extends JPanel {
 
@@ -37,11 +40,17 @@ public class FishingJPanel extends JPanel {
         stopButton.setBounds(100, 100, 80, 25);
         this.add(stopButton);
 
+
         String remark = "<html>时间输入框输入蓄力时间，单位是毫秒<br />可以自己多次测试确定时间，比较精准</html>";
         JLabel remarkLabel = new JLabel(remark);
         remarkLabel.setBounds(10,150,400,100);
         remarkLabel.setFont(new Font("微软雅黑",1,15));
         this.add(remarkLabel);
+
+        JRadioButton buffRadio = new JRadioButton("BUFF");
+        buffRadio.setBounds(200, 100, 80, 25);
+        buffRadio.setFont(new Font("微软雅黑",1,15));
+        this.add(buffRadio);
 
         startButton.addActionListener(new ActionListener() {
 
@@ -56,7 +65,6 @@ public class FishingJPanel extends JPanel {
 
                     }
                 }
-
                 running = new FishRunning(5000,paoganTime, Position1366.FISHING_X,Position1366.FISHING_Y,Position1366.FISHING_LEFT_X,Position1366.FISHING_LEFT_Y,Position1366.FISHING_RIGHT_X,Position1366.FISHING_RIGHT_Y);
 
                 Thread thread = new Thread(new Runnable() {
@@ -64,6 +72,14 @@ public class FishingJPanel extends JPanel {
                         running.run();
                     }
                 });
+                if(buffRadio.isSelected()) {
+                    Thread buff = new Thread(new Runnable() {
+                        public void run() {
+                            running.useBuff();
+                        }
+                    });
+                    buff.start();
+                }
                 thread.start();
             }
         });

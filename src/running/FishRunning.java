@@ -37,6 +37,7 @@ public class FishRunning extends Running{
 
 		this.waitTime = waitTime;
 	}
+
 	public FishRunning(int waitTime,int paoganTime,int x,int y,int leftX,int leftY,int rightX,int rigthY){
 
 		this.paoganTime = paoganTime;
@@ -53,6 +54,32 @@ public class FishRunning extends Running{
 
 	public void stop(){
 		this.kaiguan = false;
+	}
+
+	public void useBuff(){
+
+		Robot robot = null;
+		try {
+			robot = new Robot();
+		} catch (AWTException e) {
+			e.printStackTrace();
+		}
+		System.out.println("使用BUFF");
+		RobotUtil robotUtil = new RobotUtil(robot);
+		robotUtil.pressKeyWithShift(KeyEvent.VK_4);
+		robotUtil.pressKeyWithShift(KeyEvent.VK_5);
+		robotUtil.pressKeyWithShift(KeyEvent.VK_6);
+		int i = 0;
+		for(;;){
+			if(!this.kaiguan) return;
+			if(i==180){
+				i=0;
+				robotUtil.pressKeyWithShift(KeyEvent.VK_4);
+				robotUtil.pressKeyWithShift(KeyEvent.VK_5);
+				robotUtil.pressKeyWithShift(KeyEvent.VK_6);
+			}
+			robot.delay(10000);
+		}
 	}
 	public void run(){
 		

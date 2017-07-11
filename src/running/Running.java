@@ -20,4 +20,6 @@ public abstract class Running {
 	public void run(){}
 
 	public void stop(){}
+
+	public void useBuff(){};
 }
