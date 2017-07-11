@@ -31,6 +31,7 @@ public class FishRunning extends Running{
 	private int leftY = 1;
 	private int rightX = 1;
 	private int rigthY = 1;
+	private boolean buff = false;
 
 
 	public FishRunning(int waitTime){
@@ -64,6 +65,7 @@ public class FishRunning extends Running{
 		} catch (AWTException e) {
 			e.printStackTrace();
 		}
+		robot.delay(10000);
 		System.out.println("使用BUFF");
 		RobotUtil robotUtil = new RobotUtil(robot);
 		robotUtil.pressKeyWithShift(KeyEvent.VK_4);
@@ -73,6 +75,11 @@ public class FishRunning extends Running{
 		for(;;){
 			if(!this.kaiguan) return;
 			if(i==180){
+				while(true){
+					if(this.buff)
+						break;
+					robot.delay(1000);
+				}
 				i=0;
 				robotUtil.pressKeyWithShift(KeyEvent.VK_4);
 				robotUtil.pressKeyWithShift(KeyEvent.VK_5);
@@ -97,6 +104,7 @@ public class FishRunning extends Running{
 			if(!this.kaiguan) return; //停止后钓完最后一条鱼终止钓鱼
 			System.out.println("第"+i+"次抛竿");
 			robotUtil.pressKeyWithTime(KeyEvent.VK_F,paoganTime);
+			this.buff = true;
 			int tempRGB = 1 ;
 			for(int u =0;;u++){
 				Color pixel = robot.getPixelColor(x,y);
@@ -137,6 +145,7 @@ public class FishRunning extends Running{
 							break;
 						}
 					}
+					this.buff = false;
 					break;
 				}else{
 					tempRGB = pixel.getRGB();

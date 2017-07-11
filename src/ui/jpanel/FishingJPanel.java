@@ -1,6 +1,5 @@
 package ui.jpanel;
 
-import com.sun.scenario.effect.impl.sw.sse.SSEBlend_SRC_OUTPeer;
 import model.Position1366;
 import running.FishRunning;
 import running.Running;
@@ -72,14 +71,14 @@ public class FishingJPanel extends JPanel {
                         running.run();
                     }
                 });
-                if(buffRadio.isSelected()) {
+                /*if(buffRadio.isSelected()) {
                     Thread buff = new Thread(new Runnable() {
                         public void run() {
                             running.useBuff();
                         }
                     });
                     buff.start();
-                }
+                }*/
                 thread.start();
             }
         });
