@@ -33,7 +33,7 @@ public class FishRunning extends Running{
 	private int rightX = 1;
 	private int rigthY = 1;
 	private boolean buff = false;
-	private boolean stop = true;
+	private boolean stop = false;
 
 
 	public FishRunning(int waitTime){
@@ -61,6 +61,7 @@ public class FishRunning extends Running{
 
 	public void useBuff(){
 
+		this.stop = true;
 		Robot robot = null;
 		try {
 			robot = new Robot();
@@ -74,6 +75,7 @@ public class FishRunning extends Running{
 		for(;;){
 			if(!this.kaiguan) return;
 			if(i==180){
+				this.stop = true;
 				while(true){
 					if(!this.buff) {
 						break;
