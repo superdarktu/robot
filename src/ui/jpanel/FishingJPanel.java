@@ -71,14 +71,14 @@ public class FishingJPanel extends JPanel {
                         running.run();
                     }
                 });
-                /*if(buffRadio.isSelected()) {
+                if(buffRadio.isSelected()) {
                     Thread buff = new Thread(new Runnable() {
                         public void run() {
                             running.useBuff();
                         }
                     });
                     buff.start();
-                }*/
+                }
                 thread.start();
             }
         });
