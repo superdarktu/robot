@@ -68,7 +68,7 @@ public class FishRunning extends Running{
 		} catch (AWTException e) {
 			e.printStackTrace();
 		}
-		robot.delay(10000);
+		robot.delay(5000);
 		System.out.println("使用BUFF");
 		RobotUtil robotUtil = new RobotUtil(robot);
 		int i = 180;
@@ -76,10 +76,7 @@ public class FishRunning extends Running{
 			if(!this.kaiguan) return;
 			if(i==180){
 				this.stop = true;
-				while(true){
-					if(!this.buff) {
-						break;
-					}
+				while(this.buff){
 					robot.delay(1000);
 				}
 				robotUtil.pressKey(KeyEvent.VK_SPACE);
@@ -90,12 +87,17 @@ public class FishRunning extends Running{
 				robotUtil.pressKeyWithShift(KeyEvent.VK_6);
 				robotUtil.pressKeyWithShift(KeyEvent.VK_7);
 				robot.delay(1000);
-			//	robot.mouseMove(1,1);
+				robot.mouseMove(940,460);
 				robot.mousePress(InputEvent.BUTTON1_MASK);
 				robot.delay(100);
 				robot.mouseRelease(InputEvent.BUTTON1_MASK);
+				robot.mousePress(InputEvent.BUTTON1_MASK);
+				robot.delay(100);
+				robot.mouseRelease(InputEvent.BUTTON1_MASK);
+				robot.delay(3000);
 				this.stop = false;
 			}
+			i++;
 			robot.delay(10000);
 		}
 	}
@@ -122,27 +124,19 @@ public class FishRunning extends Running{
 			int tempRGB = 1 ;
 			for(int u =0;;u++){
 				Color pixel = robot.getPixelColor(x,y);
-				System.out.println(pixel.getRGB());
-				if(u>50) break;
+				if(u>400){ this.buff = false;break;}
 				if(pixel.getRGB()> AWTColor.FISHING_COLOR_DOWN &&pixel.getRGB()<AWTColor.FISHING_COLOR_UP){
 					System.out.println("第"+lagan+"次拉竿");
 					robotUtil.pressKey(KeyEvent.VK_F);
 					lagan++;
-					for(int p=0;p<3;p++){
-						robot.delay(400);
+					for(int p=0;p<12;p++){
+						robot.delay(100);
 						Color pixelLeft = robot.getPixelColor(this.leftX,this.leftY);
 						Color pixelRight = robot.getPixelColor(this.rightX,this.rigthY);
 						Color pixelLeft2 = robot.getPixelColor(this.leftX,this.leftY-10);
 						Color pixelRight2 = robot.getPixelColor(this.rightX,this.rigthY-10);
 						Color pixelLeft3 = robot.getPixelColor(this.leftX,this.leftY-20);
 						Color pixelRight3 = robot.getPixelColor(this.rightX,this.rigthY-20);
-						System.out.println(pixelLeft.getRGB());
-						System.out.println(pixelRight.getRGB());
-						System.out.println(pixelLeft2.getRGB());
-						System.out.println(pixelRight2.getRGB());
-						System.out.println(pixelLeft3.getRGB());
-						System.out.println(pixelRight3.getRGB());
-						System.out.println("-------------");
 						if((pixelLeft.getRGB()>-300000 &&pixelLeft.getRGB()<0) ||
 								(pixelLeft2.getRGB()>-300000 &&pixelLeft2.getRGB()<0) ||
 								(pixelLeft3.getRGB()>-300000 &&pixelLeft3.getRGB()<0) ){
@@ -163,7 +157,7 @@ public class FishRunning extends Running{
 					break;
 				}else{
 					tempRGB = pixel.getRGB();
-					robot.delay(300);
+					robot.delay(100);
 				}
 			}
 			robot.delay(2000);
@@ -186,8 +180,6 @@ public class FishRunning extends Running{
 			Color pixelRight2 = robot.getPixelColor(x2,y2-10);
 			Color pixelLeft3 = robot.getPixelColor(x1,y1-20);
 			Color pixelRight3 = robot.getPixelColor(x2,y2-20);
-			System.out.println(pixelLeft.getRGB());
-			System.out.println(pixelRight.getRGB());
 			if((pixelLeft.getRGB()>-300000 &&pixelLeft.getRGB()<0)||
 					(pixelLeft2.getRGB()>-300000 &&pixelLeft2.getRGB()<0)||
 					(pixelLeft3.getRGB()>-300000 &&pixelLeft3.getRGB()<0)){
