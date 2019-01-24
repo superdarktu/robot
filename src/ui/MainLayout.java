@@ -2,7 +2,6 @@ package ui;
 
 import ui.jpanel.AutoKillJPanel;
 import ui.jpanel.FishingJPanel;
-import ui.jpanel.One20JPanel;
 
 import javax.swing.*;
 import java.awt.*;
@@ -16,7 +15,6 @@ public class MainLayout extends JFrame{
         JTabbedPane tab = new JTabbedPane(JTabbedPane.TOP);
 
         tab.addTab("钓鱼", new FishingJPanel());
-        tab.addTab("打怪", new One20JPanel());
         tab.addTab("120", new AutoKillJPanel());
         tab.setFont(new Font("微软雅黑",1,15));
         container.add(tab);
